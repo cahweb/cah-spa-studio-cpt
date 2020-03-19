@@ -10,7 +10,7 @@ the_post();
 
 ?>
 
-<div class="container mt-5 mb-4">
+<div class="container-fluid m-0">
     <div class="header-media header-media-content-block header-media-default media-background-container mb-0 d-flex flex-column">
         <img src="<?= get_the_post_thumbnail_url() ?>" class="media-background object-fit-cover">
         <div class="header-content">
@@ -25,6 +25,8 @@ the_post();
             </div>
         </div>
     </div>
+</div>
+<div class="container mt-5 mb-4">
     <div class="row mt-4">
         <div class="col-12 col-md-7">
             <div class="row">
@@ -48,6 +50,14 @@ the_post();
         </div>
     </div>
 </div>
+
+
+<script>
+window.onload = function() {
+    const title = document.querySelector('.site-header .navbar + div.container')
+    title.remove()
+}
+</script>
 
 <?php
 
