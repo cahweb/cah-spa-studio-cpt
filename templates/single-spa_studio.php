@@ -10,7 +10,7 @@ the_post();
 
 ?>
 
-<div class="container-fluid m-0">
+<div class="container-fluid no-gutters m-0">
     <div class="header-media header-media-content-block header-media-default media-background-container mb-0 d-flex flex-column">
         <img src="<?= get_the_post_thumbnail_url() ?>" class="media-background object-fit-cover">
         <div class="header-content">
