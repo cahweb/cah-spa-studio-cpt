@@ -51,14 +51,6 @@ the_post();
     </div>
 </div>
 
-
-<script>
-window.onload = function() {
-    const title = document.querySelector('.site-header .navbar + div.container')
-    title.remove()
-}
-</script>
-
 <?php
 
 get_footer();
