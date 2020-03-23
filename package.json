@@ -1,0 +1,36 @@
+{
+  "name": "cah-spa-studio-cpt",
+  "version": "1.0.0",
+  "description": "WordPress Custom Post Type for the UCF School of Performing Arts",
+  "main": "cah-spa-studio-cpt.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cahweb/cah-spa-studio-cpt.git"
+  },
+  "keywords": [
+    "custom-post-type",
+    "wordpress",
+    "ucf",
+    "cah",
+    "spa"
+  ],
+  "author": "Mike W. Leavitt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cahweb/cah-spa-studio-cpt/issues"
+  },
+  "homepage": "https://github.com/cahweb/cah-spa-studio-cpt#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-terser": "^1.2.0",
+    "merge-stream": "^2.0.0"
+  }
+}

@@ -36,11 +36,11 @@ if( !class_exists( 'CAH_SPAStudioCPTRegistrar' ) ) {
             register_post_type( 'studio', self::_args( $labels ) );
 
             // Add our new metabox to the editor
-            add_action( 'add_meta_boxes', [ __CLASS__, 'register_metabox' ], 10, 0 );
+            //add_action( 'add_meta_boxes', [ __CLASS__, 'register_metabox' ], 10, 0 );
 
             // Point WP to our custom save function, so we can
             // store the new post metadata.
-            add_action( 'save_post_studio', [ __CLASS__, 'save' ] );
+            //add_action( 'save_post_studio', [ __CLASS__, 'save' ] );
         }
 
 
@@ -64,6 +64,15 @@ if( !class_exists( 'CAH_SPAStudioCPTRegistrar' ) ) {
                 'studio_sidebar',
                 'Right Sidebar',
                 [ __CLASS__, 'build' ],
+                'studio',
+                'normal',
+                'low'
+            );
+
+            add_meta_box(
+                'studio_accordions',
+                'Disciplines',
+                [ 'CAH_SPAStudioCPTEditor', 'build_accordion' ],
                 'studio',
                 'normal',
                 'low'
@@ -204,9 +213,9 @@ if( !class_exists( 'CAH_SPAStudioCPTRegistrar' ) ) {
          * @author Mike W. Leavitt
          * @since 0.1.0
          *
-         * @return void
+         * @return array
          */
-        private static function _taxonomies() {
+        private static function _taxonomies() : array {
             $tax = array();
             $tax = apply_filters( 'spa_studio_cpt_taxonomies', $tax );
 

@@ -1,0 +1,27 @@
+:root {
+    --delete-button-bg-color: rgb(225, 50, 50);
+    --delete-button-bg-color-dark: rgb( 200, 25, 25);
+    --delete-button-color: rgb(50, 50, 50);
+}
+
+#accordion-list {
+    width: 100%;
+}
+
+#accordion-list textarea {
+    width: 100%;
+}
+
+.button-delete {
+    background-color: var(--delete-button-bg-color) !important;
+    color: var(--delete-button-color) !important;
+    border-color: var(--delete-button-color) !important;
+}
+
+.button-delete:hover {
+    background-color: var(--delete-button-bg-color-dark) !important;
+}
+
+.button-delete span, #add-button span {
+    margin-top: .25rem;
+}
