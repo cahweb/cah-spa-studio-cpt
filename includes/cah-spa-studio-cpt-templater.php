@@ -23,6 +23,7 @@ if( !class_exists( 'CAH_SPAStudioCPTTemplater' ) ) {
          */
         public static function set() {
             add_filter( 'template_include', [ __CLASS__, 'add' ] );
+            add_action( 'wp_enqueue_scripts', [ __CLASS__, 'load_style' ], 10, 0 );
         }
 
         /**
@@ -42,6 +43,26 @@ if( !class_exists( 'CAH_SPAStudioCPTTemplater' ) ) {
             }
 
             return $template;
+        }
+
+
+        /**
+         * When using the Responsive Accordion plugin, it forces the content to use
+         * Open Sans as a typeface, and flags it as !important, so it's difficult to
+         * corret. Since this stylesheet is loaded afterward, the typeface should
+         * be overridden.
+         * 
+         * @author Mike W. Leavitt
+         * @since 0.1.0
+         * 
+         * @return void
+         */
+        public static function load_style() {
+            global $post;
+
+            if( 'studio' == $post->post_type ) {
+                wp_enqueue_style( 'cah-spa-studio-accordion-style', CAH_SPA_STUDIO__PLUGIN_DIR_URL . 'css/accordion-style.min.css', [], CAH_SPA_STUDIO__VERSION, 'all' );
+            }
         }
     }
 }

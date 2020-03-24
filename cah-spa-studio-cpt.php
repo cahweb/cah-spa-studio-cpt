@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) or die( "No direct access plzthx." );
 define( 'CAH_SPA_STUDIO__VERSION', '0.1.0' );
 define( 'CAH_SPA_STUDIO__PLUGIN_FILE', __FILE__ );
 define( 'CAH_SPA_STUDIO__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'CAH_SPA_STUIDO__PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'CAH_SPA_STUDIO__PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
 
 // Include other files
 require_once 'includes/cah-spa-studio-cpt-registrar.php';
