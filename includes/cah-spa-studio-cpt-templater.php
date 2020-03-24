@@ -23,7 +23,7 @@ if( !class_exists( 'CAH_SPAStudioCPTTemplater' ) ) {
          */
         public static function set() {
             add_filter( 'template_include', [ __CLASS__, 'add' ] );
-            add_action( 'wp_enqueue_scripts', [ __CLASS__, 'load_style' ], 99, 0 );
+            add_action( 'wp_enqueue_scripts', [ __CLASS__, 'load_scripts' ], 99, 0 );
         }
 
         /**
@@ -57,11 +57,12 @@ if( !class_exists( 'CAH_SPAStudioCPTTemplater' ) ) {
          * 
          * @return void
          */
-        public static function load_style() {
+        public static function load_scripts() {
             global $post;
 
             if( 'studio' == $post->post_type ) {
                 wp_enqueue_style( 'cah-spa-studio-accordion-style', CAH_SPA_STUDIO__PLUGIN_DIR_URL . 'dist/css/accordion-style.css', [], CAH_SPA_STUDIO__VERSION, 'all' );
+                wp_enqueue_script( 'cah-spa-studio-script', CAH_SPA_STUDIO__PLUGIN_DIR_URL . 'dist/js/main.min.js', ['jquery'], CAH_SPA_STUDIO__VERSION, true );
             }
         }
     }
