@@ -147,7 +147,7 @@ if( !class_exists( 'CAH_SPAStudioCPTRegistrar' ) ) {
                 'show_ui' => true,
                 'show_in_menu' => true,
                 'menu_position' => 5,
-                'menu_icon' => 'dashicons-tickets-alt',
+                'menu_icon' => 'dashicons-format-audio',
                 'show_in_admin_bar' => true,
                 'show_in_nav_menus' => true,
                 'can_export' => true,
