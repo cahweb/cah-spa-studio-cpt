@@ -23,7 +23,7 @@ if( !class_exists( 'CAH_SPAStudioCPTTemplater' ) ) {
          */
         public static function set() {
             add_filter( 'template_include', [ __CLASS__, 'add' ] );
-            add_action( 'wp_enqueue_scripts', [ __CLASS__, 'load_style' ], 15, 0 );
+            add_action( 'wp_enqueue_scripts', [ __CLASS__, 'load_style' ], 99, 0 );
         }
 
         /**
