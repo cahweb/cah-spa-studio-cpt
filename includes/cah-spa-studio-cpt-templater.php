@@ -61,7 +61,7 @@ if( !class_exists( 'CAH_SPAStudioCPTTemplater' ) ) {
             global $post;
 
             if( 'studio' == $post->post_type ) {
-                wp_enqueue_style( 'cah-spa-studio-accordion-style', CAH_SPA_STUDIO__PLUGIN_DIR_URL . 'css/accordion-style.css', [], CAH_SPA_STUDIO__VERSION, 'all' );
+                wp_enqueue_style( 'cah-spa-studio-accordion-style', CAH_SPA_STUDIO__PLUGIN_DIR_URL . 'dist/css/accordion-style.css', [], CAH_SPA_STUDIO__VERSION, 'all' );
             }
         }
     }
