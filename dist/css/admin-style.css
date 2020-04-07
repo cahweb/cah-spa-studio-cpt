@@ -2,6 +2,7 @@
     --delete-button-bg-color: rgb(225, 50, 50);
     --delete-button-bg-color-dark: rgb( 200, 25, 25);
     --delete-button-color: rgb(50, 50, 50);
+    --border-color: rgb(200, 200, 200);
 }
 
 #accordion-list {
@@ -22,6 +23,32 @@
     background-color: var(--delete-button-bg-color-dark) !important;
 }
 
-.button-delete span, #add-button span {
+.button-delete span, #button-add-section span, .button-add-link span {
     margin-top: .25rem;
+}
+
+.link-section {
+    border: 1px solid var(--border-color);
+    padding: .5em;
+}
+
+.link-section label {
+    font-weight: bold;
+}
+
+.link-section:not(:last-child) {
+    margin-bottom: 2em;
+}
+
+.link-section tr.link-entry td:first-child {
+    padding-left: 2em;
+}
+
+.link-section tr:first-child td {
+    padding-bottom: .5em;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.link-section tr:nth-child(2) td {
+    padding-top: .5em;
 }
