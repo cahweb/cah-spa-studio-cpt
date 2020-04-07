@@ -27,6 +27,10 @@
     margin-top: .25rem;
 }
 
+#link-box {
+    overflow-y: scroll;
+}
+
 .link-section {
     border: 1px solid var(--border-color);
     padding: .5em;

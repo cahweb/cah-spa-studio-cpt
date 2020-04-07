@@ -48,7 +48,7 @@ if( !class_exists( 'CAH_SPAStudioCPTEditor' ) ) {
                 'normal',
                 'low'
             );
-            
+
             add_meta_box(
                 'studio_sidebar',
                 'Right Sidebar',
@@ -139,7 +139,33 @@ if( !class_exists( 'CAH_SPAStudioCPTEditor' ) ) {
 
             ?>
 
-            <div class="inner-meta">
+<div class="inner-meta">
+                <div class="link-section">
+                    <div class="section-name">
+                        <label>Section Name: </label>
+                        <input type="text" size="50">
+                    </div>
+                    <div class="link-box">
+                        <div class="link-entry">
+                            <div class="link-name">
+                                <label>Link Name: </label>
+                                <input type="text" size="20">
+                            </div>
+                            <div class="link-addr">
+                                <label>Link Name: </label>
+                                <input type="text" size="75">
+                            </div>
+                            <div class="link-delete">
+                                <button type="button" class="button button-delete">
+                                    <span class="dashicons dashicons-trash"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inner-meta" id="link-box">
             <?php foreach( $sections as $id => $section ) : ?>
                 <table class="link-section" id="section-<?= $id ?>">
                     <tr>
