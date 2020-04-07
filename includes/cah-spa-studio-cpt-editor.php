@@ -139,7 +139,7 @@ if( !class_exists( 'CAH_SPAStudioCPTEditor' ) ) {
 
             ?>
 
-            <div class="inner-meta">
+            <div class="inner-meta" id="sidebar-link-box">
             <?php foreach( $sections as $id => $section ) : ?>
                 <table class="link-section" id="section-<?= $id ?>">
                     <tr>
