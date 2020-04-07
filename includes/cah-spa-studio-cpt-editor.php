@@ -41,18 +41,18 @@ if( !class_exists( 'CAH_SPAStudioCPTEditor' ) ) {
             //      - situations to show the box in
             //      - priority for box display
             add_meta_box(
-                'studio_sidebar',
-                'Right Sidebar',
-                [ __CLASS__, 'sidebar_box' ],
+                'right_menu_links',
+                'Sidebar Menu Links',
+                [ __CLASS__, 'menu_links' ],
                 'studio',
                 'normal',
                 'low'
             );
-
+            
             add_meta_box(
-                'right_menu_links',
-                'Sidebar Menu Links',
-                [ __CLASS__, 'menu_links' ],
+                'studio_sidebar',
+                'Right Sidebar',
+                [ __CLASS__, 'sidebar_box' ],
                 'studio',
                 'normal',
                 'low'
