@@ -139,75 +139,78 @@ if( !class_exists( 'CAH_SPAStudioCPTEditor' ) ) {
 
             ?>
 
-<div class="inner-meta">
-                <div class="link-section">
+            <div class="inner-meta" id="link-flex-box">
+            <?php foreach( $sections as $i => $section ) : ?>
+                <div class="link-section" id="section-<?= $i ?>">
                     <div class="section-name">
-                        <label>Section Name: </label>
-                        <input type="text" size="50">
+                        <div>
+                            <label>Section Name: </label>
+                            <input type="text" 
+                                size="50" 
+                                name="section_names[]" 
+                                id="name-section-<?= $i ?>"
+                                value="<?= isset( $section['name'] ) ? $section['name'] : '' ?>"
+                            >
+                        </div>
+                        <button type="button" class="button button-delete button-delete-section" id="delete-section-<?= $i ?>" aria-label="Delete Section">
+                            <span class="dashicons dashicons-trash" aria-hidden="true"></span>
+                        </button>
                     </div>
                     <div class="link-box">
-                        <div class="link-entry">
+                    <?php if( isset( $section['links'] ) && !empty( $section['links'] ) ) : ?>
+                        <?php foreach( $section['links'] as $j => $link ) : ?>
+                        <div class="link-entry" id="section-<?= $i ?>-link-<?= $j ?>">
                             <div class="link-name">
                                 <label>Link Name: </label>
-                                <input type="text" size="20">
+                                <input type="text" 
+                                    size="30"
+                                    name="section_<?= $i ?>_link_names[]"
+                                    id="label-section-<?= $i ?>-link-<?= $j ?>"
+                                    value="<?= isset( $link['name'] ) ? $link['name'] : '' ?>"
+                                >
                             </div>
                             <div class="link-addr">
-                                <label>Link Name: </label>
-                                <input type="text" size="75">
+                                <label>Link Address: </label>
+                                <input type="text" 
+                                    size="75"
+                                    name="section_<?= $i ?>_link_hrefs[]"
+                                    id="href-section-<?= $i ?>-link-<?= $j ?>"
+                                    value="<?= isset( $link['href'] ) ? $link['href'] : '' ?>"
+                                >
                             </div>
                             <div class="link-delete">
-                                <button type="button" class="button button-delete">
-                                    <span class="dashicons dashicons-trash"></span>
+                                <button type="button" 
+                                    class="button button-delete button-delete-link"
+                                    id="delete-section-<?= $i ?>-link-<?= $j ?>"
+                                    aria-label="Delete Link"
+                                >
+                                    <span class="dashicons dashicons-trash" aria-hidden="true"></span>
                                 </button>
                             </div>
                         </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                        <div>
+                            <button type="button"
+                                class="button button-primary button-add-link"
+                                id="button-add-link-section-<?= $i ?>"
+                                aria-label="Add Link"
+                            >
+                                <span class="dashicons dashicons-plus" aria-hidden="true"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="inner-meta" id="link-box">
-            <?php foreach( $sections as $id => $section ) : ?>
-                <table class="link-section" id="section-<?= $id ?>">
-                    <tr>
-                        <td><label>Section Name: </label></td>
-                        <td colspan="3"><input type="text" id="name-section-<?= $id ?>" name="section_names[]" size="50" value="<?= isset( $section['name'] ) ? $section['name'] : '' ?>"></td>
-                        <td></td>
-                        <td>
-                            <button type="button" id="delete-section-<?= $id ?>" class="button button-delete button-delete-section" aria-label="Delete Section">
-                                <span class="dashicons dashicons-trash" aria-hidden="true"></span>
-                            </button>
-                        </td>
-                    </tr>
-                <?php if( isset( $section['links'] ) && !empty( $section['links'] ) ) : 
-                        foreach( $section['links'] as $i => $link ) :
-                ?>
-                    <tr id="section-<?= $id ?>-link-<?= $i ?>" class="link-entry">
-                        <td><label>Link Text:</label></td>
-                        <td><input type="text" id="label-section-<?= $id ?>-link-<?= $i ?>" name="section_<?= $id ?>_link_names[]" value="<?= isset( $link['name'] ) ? $link['name'] : '' ?>"></td>
-                        <td><label>Link Address:</label></td>
-                        <td colspan="2"><input type="text" id="href-section-<?= $id ?>-link-<?= $i ?>" name="section_<?= $id ?>_link_hrefs[]" value="<?= isset( $link['href'] ) ? $link['href'] : '' ?>" size="100"></td>
-                        <td>
-                            <button type="button" id="delete-section-<?= $id ?>-link-<?= $i ?>" class="button button-delete button-delete-link" aria-label="Delete Link">
-                                <span class="dashicons dashicons-trash" aria-hidden="true"></span>
-                            </button>
-                        </td>
-
-                    </tr>
-                <?php   endforeach;
-                    endif;
-                ?>
-                    <tr>
-                        <td>
-                            <button type="button" class="button button-primary button-add-link" id="button-add-link-section-<?= $id ?>">
-                                <span class="dashicons dashicons-plus"></span>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
             <?php endforeach; ?>
-            <button type="button" class="button button-primary" id="button-add-section">
-                <span class="dashicons dashicons-plus"></span>
-            </button>
+                <div>
+                    <button type="button"
+                            class="button button-primary"
+                            id="button-add-section"
+                            aria-label="Add Section"
+                    >
+                        <span class="dashicons dashicons-plus" aria-hidden="true"></span>
+                    </button>
+                </div>
             </div>
 
             <?php

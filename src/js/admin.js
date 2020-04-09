@@ -20,53 +20,53 @@
     const createLink = function(linkId, secId) {
         const sec = 'section-' + secId
         const link = 'link-' + linkId
-        const newRow = $('<tr></tr>').attr({
-            id: sec + '-' + link,
+
+        const newRow = $('<div></div>').attr({
             class: 'link-entry',
-        })
-            .append(
-                $('<td></td>').append(
-                    $('<label></label>').html('Link Text:')
-                )
+            id: sec + '-' + link,
+        }).append(
+            $('<div></div>').attr({
+                class: 'link-name',
+            }).append(
+                $('<label></label>').html('Link Name: ')
+            ).append(
+                $('<input></input>').attr({
+                    type: 'text',
+                    size: 30,
+                    name: 'section_' + secId + '_link_names[]',
+                    id: 'label-' + sec + '-' + link,
+                })
             )
-            .append(
-                $('<td></td>').append(
-                    $('<input></input>').attr({
-                        type: 'text',
-                        id: 'label-' + sec + '-' + link,
-                        name: 'section_' + secId + '_link_names[]',
-                    })
-                )
+        ).append(
+            $('<div></div>').attr({
+                class: 'link-addr',
+            }).append(
+                $('<label></label>').html('Link Address: ')
+            ).append(
+                $('<input></input>').attr({
+                    type: 'text',
+                    size: 75,
+                    name: 'section_' + secId + '_link_hrefs[]',
+                    id: 'href-' + sec + '-' + link,
+                })
             )
-            .append(
-                $('<td></td>').append(
-                    $('<label></label>').html('Link Address:')
-                )
-            )
-            .append(
-                $('<td></td>').attr('colspan', 2).append(
-                    $('<input></input>').attr({
-                        type: 'text',
-                        id: 'href-' + sec + '-' + link,
-                        name: 'section_' + secId + '_link_hrefs[]',
-                        size: 100,
-                    })
-                )
-            )
-            .append($('<td></td>').append(
+        ).append(
+            $('<div></div>').attr({
+                class: 'link-delete',
+            }).append(
                 $('<button></button>').attr({
                     type: 'button',
-                    id: 'delete-' + sec + '-' + link,
                     class: 'button button-delete button-delete-link',
+                    id: 'delete-' + sec + '-' + link,
                     'aria-label': 'Delete Link',
-                })
-                .append(
+                }).append(
                     $('<span></span>').attr({
                         class: 'dashicons dashicons-trash',
                         'aria-hidden': true,
                     })
                 )
-            ))
+            )
+        )
 
         indices[secId] = linkId
 
@@ -75,65 +75,63 @@
 
 
     const createSection = function(secId) {
-        const newSec = $('<table></table>').attr({
-            id: 'section-' + secId,
+        const newSec = $('<div></div>').attr({
             class: 'link-section',
-        })
-            .append(
-                $('<tr></tr>').append(
-                    $('<td></td>').append(
-                        $('<label></label>').html('Section Name:')
-                    )
+            id: 'section-' + secId,
+        }).append(
+            $('<div></div>').attr({
+                class: 'section-name',
+            }).append(
+                $('<div></div>').append(
+                    $('<label></label>').html('Section Name: ')
+                ).append(
+                    $('<input></input>').attr({
+                        type: 'text',
+                        size: 50,
+                        name: 'section_names[]',
+                        id: 'name-section-' + secId,
+                    })
                 )
-                .append(
-                    $('<td></td>').attr('colspan', 3).append(
-                        $('<input></input>').attr({
-                            type: 'text',
-                            id: 'name-section-' + secId,
-                            name: 'section_names[]',
-                            size: 50,
-                        })
-                    )
-                )
-                .append($('<td></td>'))
-                .append(
-                    $('<td></td>').append(
-                        $('<button></button>').attr({
-                            type: 'button',
-                            id: 'delete-section-' + secId,
-                            class: 'button button-delete button-delete-section',
-                            'aria-label': 'Delete Section',
-                        })
-                        .append(
-                            $('<span></span>').attr({
-                                class: 'dashicons dashicons-trash',
-                                'aria-hidden': true,
-                            })
-                        )
-                    )
-                )
-            )
-
-        const newRow = createLink(0, secId)
-
-        newSec.append(newRow)
-
-        const newLinkButton = $('<tr></tr>').append(
-            $('<td></td>').append(
+            ).append(
                 $('<button></button>').attr({
                     type: 'button',
-                    class: 'button button-primary button-add-link',
-                    id: 'button-add-link-section-' + secId
-                })
-                .append(
+                    class: 'button button-delete button-delete-section',
+                    id: 'delete-section-' + secId,
+                    'aria-label': 'Delete Section',
+                }).append(
                     $('<span></span>').attr({
-                        class: 'dashicons dashicons-plus',
+                        class: 'dashicons dashicons-trash',
+                        'aria-hidden': true,
                     })
                 )
             )
         )
 
-        newSec.append(newLinkButton)
+        const linkBox = $('<div></div>').attr({
+            class: 'link-box',
+        })
+
+        const newLink = createLink(0, secId)
+
+        linkBox.append(newLink)
+
+        const linkButton = $('<div></div>').append(
+            $('<button></button>').attr({
+                type: 'button',
+                class: 'button button-primary button-add-link',
+                id: 'button-add-link-section-' + secId,
+                'aria-label': 'Add Link',
+            }).append(
+                $('<span></span>').attr({
+                    class: 'dashicons dashicons-plus',
+                    'aria-hidden': true,
+                })
+            )
+        )
+
+        linkBox.append(linkButton)
+
+        newSec.append(linkBox)
 
         return newSec
     }
@@ -222,7 +220,7 @@
 
             const newLink = createLink(newIndex, secId)
 
-            $(this).parent().parent().before(newLink)
+            $(section).find('.link-box > div:last-child').before(newLink)
             indices[secId] = newIndex
             addDeleteListeners()
         })
