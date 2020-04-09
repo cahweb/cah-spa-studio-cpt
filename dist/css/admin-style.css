@@ -27,13 +27,16 @@
     margin-top: .25rem;
 }
 
-#sidebar-link-box {
+#link-box {
     overflow-x: scroll;
 }
 
 .link-section {
     border: 1px solid var(--border-color);
     padding: .5em;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .link-section label {
@@ -55,4 +58,72 @@
 
 .link-section tr:nth-child(2) td {
     padding-top: .5em;
+}
+
+.section-name {
+    display: flex;
+    display: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: .5em;
+    margin-bottom: .5em;
+}
+
+.section-name div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: inherit;
+    margin-right: 1em;
+}
+
+.link-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-entry {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2em;
+    margin-bottom: .5em;
+}
+
+.link-entry label,
+.section-name label {
+    margin-right: .5em;
+}
+
+.link-name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.link-addr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.link-delete {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+@media screen and (min-width: 578px) {
+    #link-flex-box {
+        overflow-x: scroll;
+    }
 }
