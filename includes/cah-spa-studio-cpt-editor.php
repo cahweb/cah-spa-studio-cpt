@@ -21,7 +21,6 @@ if( !class_exists( 'CAH_SPAStudioCPTEditor' ) ) {
 
             add_action( 'save_post_studio', [ __CLASS__, 'save' ], 10, 0 );
 
-            // Scripts are empty at the moment, so we don't technically need this yet.
             add_action( 'admin_enqueue_scripts', [ __CLASS__, 'maybe_load_scripts' ] );
         }
 

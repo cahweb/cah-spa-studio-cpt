@@ -1,0 +1,105 @@
+$delete-button-bg-color: rgb(255, 50, 50);
+$delete-button-bg-color-dark: rgb(200, 25, 25);
+$delete-button-color: rgb(50, 50, 50);
+$border-color: rgb(200, 200, 200);
+
+.button-delete {
+    background-color: $delete-button-bg-color !important;
+    color: $delete-button-color !important;
+    border-color: $delete-button-color !important;
+
+    &:hover {
+        background-color: $delete-button-bg-color-dark !important;
+    }
+}
+
+.button-delete span,
+#button-add-section span,
+.button-add-link span {
+    margin-top: .25rem;
+}
+
+.link-section {
+    border: 1px solid $border-color;
+    padding: .5em;
+
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-weight: bold;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 2em;
+    }
+}
+
+.section-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px dashed $border-color;
+    padding-bottom: .5em;
+    margin-bottom: .5em;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: inherit;
+        margin-right: 1em;
+    }
+}
+
+.link-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-entry {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2em;
+    margin-bottom: .5em;
+}
+
+.link-entry, .section-name {
+    label {
+        margin-right: .5em;
+    }
+}
+
+.link-name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.link-addr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.link-delete {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+@media screen and (min-width: 578px) {
+    #link-flex-box {
+        overflow-x: scroll;
+    }
+}
